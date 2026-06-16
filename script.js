@@ -141,14 +141,14 @@ function initBookViewer() {
     bookGroup.position.y = 0.65;
     scene.add(bookGroup);
 
-    const ambientLight = new THREE.AmbientLight(0xffffff, 0.75);
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.25);
     scene.add(ambientLight);
 
-    const mainLight = new THREE.DirectionalLight(0xffffff, 1.7);
+    const mainLight = new THREE.DirectionalLight(0xffffff, 0.7);
     mainLight.position.set(3, 5, 6);
     scene.add(mainLight);
 
-    const subLight = new THREE.DirectionalLight(0xffffff, 0.6);
+    const subLight = new THREE.DirectionalLight(0xffffff, 0.12);
     subLight.position.set(-4, 2, -3);
     scene.add(subLight);
 
