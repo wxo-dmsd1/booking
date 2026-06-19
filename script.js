@@ -1,3 +1,28 @@
+function showPage(targetPage) {
+    const pages = [page1, page2, page3];
+
+    pages.forEach((page) => {
+        page.classList.remove("active");
+        page.classList.remove("fade-out");
+        page.style.display = "none";
+        page.style.opacity = "0";
+    });
+
+    targetPage.classList.add("active");
+    targetPage.style.display = "block";
+    targetPage.classList.remove("fade-out");
+
+    requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+            targetPage.style.opacity = "1";
+        });
+    });
+}
+
+
+// ---------------------------------------------------------//
+
+
 const page1 = document.getElementById("page1");
 const page2 = document.getElementById("page2");
 const page3 = document.getElementById("page3");
@@ -17,18 +42,8 @@ page1.addEventListener("click", () => {
     page1.classList.add("fade-out");
 
     setTimeout(() => {
-
-        page1.style.display = "none";
-
-        page2.classList.add("active");
-        page2.style.opacity = "0";
-
-        requestAnimationFrame(() => {
-            requestAnimationFrame(() => {
-                page2.style.opacity = "1";
-            });
-        });
-
+        showPage(page2);
+        window.scrollTo(0, 0);
     }, 800);
 
 });
@@ -43,35 +58,56 @@ if (toPage3) {
 
         setTimeout(() => {
 
-            page2.style.display = "none";
-
-            page3.classList.add("active");
-            page3.style.opacity = "0";
-
+            showPage(page3);
             window.scrollTo(0, 0);
 
-            requestAnimationFrame(() => {
-                requestAnimationFrame(() => {
-
-                    page3.style.opacity = "1";
-
-                    if (!bookInitialized) {
-                        initBookViewer();
-                        bookInitialized = true;
-                    }
-
-                });
-            });
+            if (!bookInitialized) {
+                initBookViewer();
+                bookInitialized = true;
+            }
 
         }, 800);
 
     });
-} else {
-    console.error("toPage3 요소를 찾을 수 없습니다. HTML에서 id='toPage3'가 있는지 확인하세요.");
 }
 
+/* page3 → page2 */
 
-/* 3D Book Viewer */
+const backToPage2 = document.getElementById("backToPage2");
+
+if (backToPage2) {
+    backToPage2.addEventListener("click", () => {
+
+        page3.classList.add("fade-out");
+
+        setTimeout(() => {
+            showPage(page2);
+            window.scrollTo(0, 0);
+        }, 800);
+
+    });
+}
+
+/* page2 → page1 */
+
+const backToPage1 = document.getElementById("backToPage1");
+
+if (backToPage1) {
+    backToPage1.addEventListener("click", () => {
+
+        page2.classList.add("fade-out");
+
+        setTimeout(() => {
+            showPage(page1);
+            window.scrollTo(0, 0);
+
+            entered = false;
+        }, 800);
+
+    });
+}
+
+// /--------------------* 3D Book Viewer *----------------------/
 
 function initBookViewer() {
 
@@ -138,7 +174,7 @@ function initBookViewer() {
     container.appendChild(renderer.domElement);
 
     const bookGroup = new THREE.Group();
-    bookGroup.position.y = 0.65;
+    bookGroup.position.y = 1.4;
     scene.add(bookGroup);
 
     const ambientLight = new THREE.AmbientLight(0xffffff, 0.25);
@@ -331,7 +367,7 @@ function initBookViewer() {
         bookGroup.add(cover);
 
         bookGroup.rotation.set(-0.18, -0.35, 0);
-        bookGroup.scale.set(1, 1, 1);
+        bookGroup.scale.set(0.9, 0.9, 0.9);
     }
 
 
@@ -569,3 +605,53 @@ window.addEventListener("mousemove", (e) => {
     customCursor.style.left = e.clientX + "px";
     customCursor.style.top = e.clientY + "px";
 });
+
+
+
+
+
+// ----------------------페이지 순서 애니메이션-----------------//
+
+
+
+const pagebox = document.querySelector(".pagebox");
+
+const pageItems = Array.from(pagebox.children);
+
+let pageboxChanged = false;
+
+function animatePageboxOrder(order) {
+    const firstPositions = pageItems.map(item => item.getBoundingClientRect());
+
+    order.forEach(index => {
+        pagebox.appendChild(pageItems[index]);
+    });
+
+    pageItems.forEach((item, index) => {
+        const lastPosition = item.getBoundingClientRect();
+
+        const deltaX = firstPositions[index].left - lastPosition.left;
+        const deltaY = firstPositions[index].top - lastPosition.top;
+
+        item.style.transition = "none";
+        item.style.transform = `translate(${deltaX}px, ${deltaY}px)`;
+
+        requestAnimationFrame(() => {
+            item.style.transition = "transform 0.9s ease";
+            item.style.transform = "translate(0, 0)";
+        });
+    });
+}
+
+setInterval(() => {
+    if (pageboxChanged) {
+        animatePageboxOrder([0, 1, 2, 3]);
+    } else {
+        animatePageboxOrder([0, 3, 1, 2]);
+    }
+
+    pageboxChanged = !pageboxChanged;
+}, 2600);
+
+// --------------------------------------------------------//
+

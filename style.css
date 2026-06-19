@@ -1,0 +1,193 @@
+<style>
+		
+		header,body,footer,h1,h2,h3,p{margin: 0; padding: 0;word-break: keep-all; flex-wrap: nowrap;}
+		body{overflow-x: hidden}
+		header{height: 100vh; justify-content: center; background: #ffdb29; cursor: pointer;}
+		h1{font-family: 'JoseonGulim'; font-size: 5rem; color: black; width: 1000px; margin: auto; text-align: center; padding-top: 360px; transition: transform 0.25s ease;}
+		h2{font-family: 'JoseonGulim'; font-size: 5rem; color: white; width: 1000px; margin: auto; text-align: center; padding: 600px 0px 200px 0px}
+		button{all: unset;}
+		body{cursor: none}
+		nav{ display: flex; justify-content: space-between;
+			left: 0;
+			width: 620px;
+			position: fixed; z-index: 10000;}
+		nav a{text-decoration: none;}
+		html{scroll-behavior: smooth;}
+
+		#customCursor{
+		    position: fixed;
+		    left: 0;
+		    top: 0;
+		    width: 22px;
+		    height: 22px;
+		    background: red;
+		    pointer-events: none;
+		    z-index: 99999;
+		    transform: translate(-50%, -50%);
+		}
+
+
+
+		@font-face {
+    font-family: 'JoseonGulim';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@1.0/ChosunGu.woff') format('woff');
+    font-weight: normal;
+    font-display: swap;}
+
+
+    @font-face {
+    font-family: 'HighTeenChoiHyoryeong';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2604-1@1.0/Lasthighteen-Bold.woff2') format('woff2');
+    font-weight: normal;
+    font-display: swap;}
+
+
+    @font-face {
+    font-family: 'ChosunIlboMyungjo';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/Chosunilbo_myungjo.woff') format('woff');
+    font-weight: normal;
+    font-display: swap;}
+
+
+
+
+		.wrapper{background: black; padding-bottom: 500px}
+		.wrapper2{background: #fcba03; padding-bottom: 500px}
+		.wrapper3{background: white; padding-bottom: 500px}
+		.wrapper4{background-image: url('images/background.png'); background-attachment: fixed;}
+		.width{width: 1200px; margin: auto;}
+		.height{height: 3000px}
+		.half-trans{position: fixed; opacity: 0.15; margin: auto; display: block;}
+		.black{color: black;}
+
+		.right{text-align: right;}
+		.center{text-align: center;}
+		.flex{display: flex;}
+
+		.middle-title{font-family: 'HighTeenChoiHyoryeong'; font-size: 3.2rem; padding: 100px 90px; color: white;}
+		.middle-title2{font-family: 'HighTeenChoiHyoryeong'; font-size: 3.2rem; padding: 100px 90px; color: black;}
+		.small-title{font-family: 'HighTeenChoiHyoryeong'; font-size: 2rem; padding: 450px 90px 0px 90px; color: white;}
+		.small-title2{font-family: 'HighTeenChoiHyoryeong'; font-size: 2rem; padding: 450px 90px 0px 90px; color: black;}
+		.p{font-family: 'JoseonGulim'; letter-spacing: 1.2; line-height: 1.8;width: 450px; padding: 120px 90px; color: white;}
+		.p2{font-family: 'JoseonGulim'; letter-spacing: 1.2; line-height: 1.8 ;width: 450px; padding: 120px 90px; color: black;}
+		.p3{font-family: 'JoseonGulim'; margin: auto; text-align: center; color: #c6c6c6; font-size: 1.5rem; width: 1000px}
+		.p3:hover{color: #ffdb29}
+		.backbutton{font-family: 'JoseonGulim'; font-size: 1.3rem; padding: 50px 80px; transition: transform 0.25s ease; color: white;}
+		.backbutton:hover{transform: scale(1.05); color: #ffdb29}
+		.navbutton{font-family: 'JoseonGulim'; color: #777; padding: 19px 45px; display: inline-block; transition: transform 0.25s ease; font-size: 0.7rem}
+		.navbutton:hover{transform: scale(1.11); color: white;}
+		.mainbutton{backdrop-filter: blur(8px); border: 0.05px solid #999999; color: #999; padding: 20px 50px; position: fixed ;left: 50px; bottom: 50px; font-family: 'JoseonGulim'; transition: transform 0.25s ease; }
+		.mainbutton:hover{color: black; background: white;}
+
+
+
+
+
+
+		.sticky{position: sticky;
+				transform: translateY(-50%); 
+				top: 50%;
+				margin: 0 auto;
+				display: block;}
+		.imgbox{position: relative; flex-grow: 1;}
+		.indesign{z-index: 1; width: 240px; margin-top: 850px}
+		.blank{z-index: 2; margin-top: 600px}
+		.guideline{z-index: 3; margin-top: 600px}
+		.gg{z-index: 4; margin-top: 250px}
+		.grid{z-index: 5; margin-top: 340px}
+		.design{z-index: 6; margin-top: 600px}
+
+		.pagebox{z-index: 7; width: 300px; height: 420px;
+				transform: translateY(-50%); 
+				top: 50%;
+				margin: 0 auto;
+				display: block;
+				margin-top: 870px;
+				display: grid;
+    			grid-template-columns: auto auto;
+    			grid-template-rows: auto auto;
+    			justify-content: space-between;
+   				align-content: space-between;}
+   		.pagebox img{transition: transform 0.8s ease;}
+
+   /*----------샘플박스--------*/
+
+   		.samplebox{position: absolute; right: -80px; top: 1590px; width: 200px}
+   		.sample1{width: 200px; z-index: 8; transition: transform 0.25s ease; box-shadow: 0 3px 6px rgba(0,0,0,0.23)}
+   		.sample2{margin-top: -30px; width: 200px; z-index: 10; transition: transform 0.25s ease; box-shadow: 0 3px 6px rgba(0,0,0,0.23)}
+   		.sample3{margin-top: -30px; width: 200px; z-index: 12; transition: transform 0.25s ease; box-shadow: 0 3px 6px rgba(0,0,0,0.23)}
+   		.sample4{margin-top: -30px; width: 200px; z-index: 14; transition: transform 0.25s ease; box-shadow: 0 3px 6px rgba(0,0,0,0.23)}
+   		.sample1:hover{transform: scale(1.08); z-index: 9;}
+   		.sample2:hover{transform: scale(1.08); z-index: 11;}
+   		.sample3:hover{transform: scale(1.08); z-index: 13;}
+   		.sample4:hover{transform: scale(1.08); z-index: 15;}
+
+   	/*-----------------------*/
+
+		.paperselect{z-index: 8; margin-top: 440px}
+		.line{z-index: 9; margin-top: 630px}
+		.making{z-index: 10; margin-top: 580px}
+
+	/*-----------------------*/
+
+		.usedpaper{position: absolute; bottom: 60px; left: 80px; width: 80px}
+		.Scottland, .shipskin, .sento{ width: 80px; transition: opacity 1s ease;}
+		.Scottland:hover {transform: scale(1.08);}
+		.shipskin:hover {transform: scale(1.08);}
+		.sento:hover {transform: scale(1.08);}
+
+		#bookSection:has(.Scottland:hover) .Scottland-ex{opacity: 1;}
+		#bookSection:has(.shipskin:hover) .shipskin-ex{opacity: 1;}
+		#bookSection:has(.sento:hover) .sento-ex{opacity: 1;}
+
+		.paperexplain{position: absolute; bottom: 60px; left: 180px; height: 300px}
+		.Scottland-ex, .shipskin-ex, .sento-ex{position: absolute; color: black; background: white; width: 300px; opacity: 0; pointer-events: none;  transition: opacity 0.25s ease; transform: 0.25s ease; }
+		
+		.Scottland-ex{bottom: 174px; padding: 30px 20px}
+		.shipskin-ex{bottom: 90px; padding: 30px 20px}
+		.sento-ex{bottom: 5px; padding: 30px 20px;}
+
+	/*-------페이지액티브--------*/
+
+		.page{display: none;}
+		.page.active{display: block;}
+
+
+		#page1,
+		#page2,
+		#page3{
+			transition: opacity 0.8s ease;}
+
+		#endingText{transition: opacity 1s ease;}
+		#triggerEnding{cursor: pointer;}
+
+		.fade-out{opacity: 0;}
+		.fade-in{opacity: 1 !important;}
+
+
+			#bookSection{
+		width: 100vw;
+		height: 100vh;
+		background: #111;
+		position: relative;
+		overflow: hidden}
+
+		#bookViewer{
+			width: 100%;
+			height: 100%;
+			cursor: grab;}
+
+		#bookViewer:active{
+			cursor: grabbing;}
+
+		#bookGuide{
+			position: absolute;
+			left: 50%;
+			bottom: 40px;
+			transform: translateX(-50%);
+			color: white;
+			font-size: 0.9rem;
+			letter-spacing: 0.03em;
+			opacity: 0.4;
+			pointer-events: none;}
+	</style>
