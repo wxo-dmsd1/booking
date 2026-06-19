@@ -4,6 +4,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>booking</title>
+	<link rel="stylesheet" href="style.css"/>
 
 
 	<style>
@@ -11,10 +12,16 @@
 		header,body,footer,h1,h2,h3,p{margin: 0; padding: 0;word-break: keep-all; flex-wrap: nowrap;}
 		body{overflow-x: hidden}
 		header{height: 100vh; justify-content: center; background: #ffdb29; cursor: pointer;}
-		h1{font-family: 'JoseonGulim'; font-size: 5rem; color: black; width: 1000px; margin: auto; text-align: center; padding-top: 400px}
+		h1{font-family: 'JoseonGulim'; font-size: 5rem; color: black; width: 1000px; margin: auto; text-align: center; padding-top: 360px; transition: transform 0.25s ease;}
 		h2{font-family: 'JoseonGulim'; font-size: 5rem; color: white; width: 1000px; margin: auto; text-align: center; padding: 600px 0px 200px 0px}
 		button{all: unset;}
 		body{cursor: none}
+		nav{ display: flex; justify-content: space-between;
+			left: 0;
+			width: 620px;
+			position: fixed; z-index: 10000;}
+		nav a{text-decoration: none;}
+		html{scroll-behavior: smooth;}
 
 		#customCursor{
 		    position: fixed;
@@ -53,13 +60,14 @@
 
 
 
-		.wrapper{background: black; padding-bottom: 200px}
-		.wrapper2{background: #fcba03; padding-bottom: 200px}
-		.wrapper3{background: #0b1a3d; padding-bottom: 200px}
+		.wrapper{background: black; padding-bottom: 500px}
+		.wrapper2{background: #fcba03; padding-bottom: 500px}
+		.wrapper3{background: white; padding-bottom: 500px}
 		.wrapper4{background-image: url('images/background.png'); background-attachment: fixed;}
 		.width{width: 1200px; margin: auto;}
 		.height{height: 3000px}
 		.half-trans{position: fixed; opacity: 0.15; margin: auto; display: block;}
+		.black{color: black;}
 
 		.right{text-align: right;}
 		.center{text-align: center;}
@@ -71,16 +79,84 @@
 		.small-title2{font-family: 'HighTeenChoiHyoryeong'; font-size: 2rem; padding: 450px 90px 0px 90px; color: black;}
 		.p{font-family: 'JoseonGulim'; letter-spacing: 1.2; line-height: 1.8;width: 450px; padding: 120px 90px; color: white;}
 		.p2{font-family: 'JoseonGulim'; letter-spacing: 1.2; line-height: 1.8 ;width: 450px; padding: 120px 90px; color: black;}
-		.sticky{position: sticky; top: 50%}
-		.image{padding: 600px 120px}
+		.p3{font-family: 'JoseonGulim'; margin: auto; text-align: center; color: #c6c6c6; font-size: 1.5rem; width: 1000px}
+		.p3:hover{color: #ffdb29}
+		.backbutton{font-family: 'JoseonGulim'; font-size: 1.3rem; padding: 50px 80px; transition: transform 0.25s ease; color: white;}
+		.backbutton:hover{transform: scale(1.05); color: #ffdb29}
+		.navbutton{font-family: 'JoseonGulim'; color: #777; padding: 19px 45px; display: inline-block; transition: transform 0.25s ease; font-size: 0.7rem}
+		.navbutton:hover{transform: scale(1.11); color: white;}
+		.mainbutton{backdrop-filter: blur(8px); border: 0.05px solid #999999; color: #999; padding: 20px 50px; position: fixed ;left: 50px; bottom: 50px; font-family: 'JoseonGulim'; transition: transform 0.25s ease; }
+		.mainbutton:hover{color: black; background: white;}
 
-		.imgbox{justify-content: center; align-items: center;}
-		.indesign{z-index: 1}
-		.a4{text-align: center; color: gray; font-family: 'HighTeenChoiHyoryeong'; font-size: 3rem; z-index: 3}
-		.blank{z-index: 2}
+
+
+
+
+
+		.sticky{position: sticky;
+				transform: translateY(-50%); 
+				top: 50%;
+				margin: 0 auto;
+				display: block;}
+		.imgbox{position: relative; flex-grow: 1;}
+		.indesign{z-index: 1; width: 240px; margin-top: 850px}
+		.blank{z-index: 2; margin-top: 600px}
+		.guideline{z-index: 3; margin-top: 600px}
+		.gg{z-index: 4; margin-top: 250px}
+		.grid{z-index: 5; margin-top: 340px}
+		.design{z-index: 6; margin-top: 600px}
+
+		.pagebox{z-index: 7; width: 300px; height: 420px;
+				transform: translateY(-50%); 
+				top: 50%;
+				margin: 0 auto;
+				display: block;
+				margin-top: 870px;
+				display: grid;
+    			grid-template-columns: auto auto;
+    			grid-template-rows: auto auto;
+    			justify-content: space-between;
+   				align-content: space-between;}
+   		.pagebox img{transition: transform 0.8s ease;}
+
+   /*----------샘플박스--------*/
+
+   		.samplebox{position: absolute; right: -80px; top: 1590px; width: 200px}
+   		.sample1{width: 200px; z-index: 8; transition: transform 0.25s ease; box-shadow: 0 3px 6px rgba(0,0,0,0.23)}
+   		.sample2{margin-top: -30px; width: 200px; z-index: 10; transition: transform 0.25s ease; box-shadow: 0 3px 6px rgba(0,0,0,0.23)}
+   		.sample3{margin-top: -30px; width: 200px; z-index: 12; transition: transform 0.25s ease; box-shadow: 0 3px 6px rgba(0,0,0,0.23)}
+   		.sample4{margin-top: -30px; width: 200px; z-index: 14; transition: transform 0.25s ease; box-shadow: 0 3px 6px rgba(0,0,0,0.23)}
+   		.sample1:hover{transform: scale(1.08); z-index: 9;}
+   		.sample2:hover{transform: scale(1.08); z-index: 11;}
+   		.sample3:hover{transform: scale(1.08); z-index: 13;}
+   		.sample4:hover{transform: scale(1.08); z-index: 15;}
+
+   	/*-----------------------*/
+
+		.paperselect{z-index: 8; margin-top: 440px}
+		.line{z-index: 9; margin-top: 630px}
+		.making{z-index: 10; margin-top: 580px}
+
+	/*-----------------------*/
+
+		.usedpaper{position: absolute; bottom: 60px; left: 80px; width: 80px}
+		.Scottland, .shipskin, .sento{ width: 80px; transition: opacity 1s ease;}
+		.Scottland:hover {transform: scale(1.08);}
+		.shipskin:hover {transform: scale(1.08);}
+		.sento:hover {transform: scale(1.08);}
+
+		#bookSection:has(.Scottland:hover) .Scottland-ex{opacity: 1;}
+		#bookSection:has(.shipskin:hover) .shipskin-ex{opacity: 1;}
+		#bookSection:has(.sento:hover) .sento-ex{opacity: 1;}
+
+		.paperexplain{position: absolute; bottom: 60px; left: 180px; height: 300px}
+		.Scottland-ex, .shipskin-ex, .sento-ex{position: absolute; color: black; background: white; width: 300px; opacity: 0; pointer-events: none;  transition: opacity 0.25s ease; transform: 0.25s ease; }
 		
+		.Scottland-ex{bottom: 174px; padding: 30px 20px}
+		.shipskin-ex{bottom: 90px; padding: 30px 20px}
+		.sento-ex{bottom: 5px; padding: 30px 20px;}
 
-
+	/*-------페이지액티브--------*/
 
 		.page{display: none;}
 		.page.active{display: block;}
@@ -121,18 +197,31 @@
 			color: white;
 			font-size: 0.9rem;
 			letter-spacing: 0.03em;
-			opacity: 0.65;
+			opacity: 0.4;
 			pointer-events: none;}
 	</style>
 </head>
+
+
 <body>
 	<header class="page active" id="page1">
-		<h1>소책자 제작 가이드북</h1>
+		<div class="width">
+			<h1>소책자 제작 가이드북</h1>
+			<p class="p2" style="margin: auto; text-align: center;">아무 곳이나 클릭하세요!</p>
+		</div>
 	</header>
 	<div class="page wrapper4" id="page2">
+		<nav>
+			<a href="#base" class="navbutton">BASE</a>
+			<a href="#design" class="navbutton">DESIGN</a>
+			<a href="#making" class="navbutton">MAKING</a>
+			<a href="#complete" class="navbutton">COMPLETE!</a>
+		</nav>
+		<div style="width: 100%; height: 0.5px; background: #333; position: fixed; top: 46.5px; left: 0px;"></div>
+		<p class="mainbutton" id="backToPage1">메인 화면으로</p>
 		<section class="flex">
 			<div class="wrapper">
-				<div>
+				<div id="base">
 					<p class="middle-title">Base</p>
 				</div>
 				<div>
@@ -149,14 +238,14 @@
 				</div>
 			</div>
 			<div class="imgbox">
-				<img src="images/indesign.png" class="sticky" style="width: 240px">
-				<div class="sticky a4">A4</div>
-				<img src="images/blank.png" class="sticky image" style="width: 300px;">
+				<img src="images/indesign.png" class="sticky indesign">
+				<img src="images/blank.png" class="sticky blank" >
+				<img src="images/guideline.png" class="sticky guideline">
 			</div>
 		</section>
 		<section class="flex">
 			<div class="wrapper2">
-				<div>
+				<div id="design">
 					<p class="middle-title2">Design</p>
 				</div>
 				<div>
@@ -168,50 +257,74 @@
 					<p class="p2">이제 디자인을 할 모든 준비가 되었다. 내가 설명하고자 하는 내용을 적절히 배치하고 위계를 설정해 페이지 안에 배치해보자.</p>
 				</div>
 			</div>
-			<div class="">
-				<img src="" class="sticky">
-				<img src="" class="sticky">
+			<div class="imgbox">
+				<img src="images/gg.png" class="sticky gg">
+				<img src="images/grid.png" class="sticky grid">
+				<img src="images/design.png" class="sticky design">
 			</div>
 		</section>
-		<section>
-			<section class="flex">
+		<section class="flex">
 			<div class="wrapper3">
-				<div>
-					<p class="middle-title">Making</p>
+				<div id="making">
+					<p class="middle-title2">Making</p>
 				</div>
 				<div>
-					<p class="small-title">내보내기</p>
-					<p class="p">인쇄소 방문을 기준으로 실물 인쇄를 할 때 가장 편한 파일 작업 방식은 인디자인의 '소책자 인쇄' 기능을 활용하는 것이다. 원래 페이지 배열 순서를 실물에서 재현하려면 전부 재배열해야 하는데, 그 작업을 자동으로 수행해주는 아주 좋은 기능이다. 추가적으로 재단선까지 만들어 pdf 파일로 내보내 주자.</p>
+					<p class="small-title2">내보내기</p>
+					<p class="p2">인쇄소 방문을 기준으로 실물 인쇄를 할 때 가장 편한 파일 작업 방식은 인디자인의 '소책자 인쇄' 기능을 활용하는 것이다. 원래 페이지 배열 순서를 실물에서 재현하려면 전부 재배열해야 하는데, 그 작업을 자동으로 수행해주는 아주 좋은 기능이다. 추가적으로 재단선까지 만들어 pdf 파일로 내보내 주자.</p>
 				</div>
 				<div>
-					<p class="small-title">종이 선택</p>
-					<p class="p">종이는 인쇄소에 방문해 고르거나, 종이를 전문적으로 다루는 업체에 방문해 직접 만져보며 구매해 따로 가져갈 수도 있다. 가볍게 한 번에 읽을 수 있는 것이 소책자의 장점이면서도 너무 얇은 종이는 인쇄 자체가 불가능할 수 있으니, 최소 90g 이상의 내지에서 200g 언저리의 표지까지 사이에서 종이 무게를 적절히 선택해 보자.</p>
+					<p class="small-title2">종이 선택</p>
+					<p class="p2">종이는 인쇄소에 방문해 고르거나, 종이를 전문적으로 다루는 업체에 방문해 직접 만져보며 구매해 따로 가져갈 수도 있다. 가볍게 한 번에 읽을 수 있는 것이 소책자의 장점이면서도 너무 얇은 종이는 인쇄 자체가 불가능할 수 있으니, 최소 90g 이상의 내지에서 200g 언저리의 표지까지 사이에서 종이 무게를 적절히 선택해 보자.</p>
 				</div>
 				<div>
-					<p class="small-title">제본 방식 선택</p>
-					<p class="p">중철 제본은 기본적으로 두 개의 스테이플러로 찍어내는 방식인데, 스티치 제본을 선택하면 스테이플러 대신 실로 종이를 꿰메 제본할 수 있다. 친근하고 따뜻한 감성이 특징인데, 종이 종류가 3가지를 넘어가거나 너무 얇거나, 잘 터지는 종류의 종이를 사는 등등의 경우에는 스티치 제본을 할 수 없다. 나의 소책자 내용에 어울리는 제본 방식을 선택하면 된다.</p>
+					<p class="small-title2">제본 방식 선택</p>
+					<p class="p2">중철 제본은 기본적으로 두 개의 스테이플러로 찍어내는 방식인데, 스티치 제본을 선택하면 스테이플러 대신 실로 종이를 꿰메 제본할 수 있다. 친근하고 따뜻한 감성이 특징인데, 종이 종류가 3가지를 넘어가거나 너무 얇거나, 잘 터지는 종류의 종이를 사용하는 등등의 경우에는 스티치 제본을 할 수 없다. 나의 소책자 내용에 어울리는 제본 방식을 선택하면 된다.</p>
 				</div>
 				<div>
-					<p class="small-title">인쇄와 검수</p>
-					<p class="p">소책자 파일과 종이, 제본 방식이 모두 준비되었다면 인쇄소에서 중철제본으로 인쇄하자. 직접 인쇄소를 방문하는 것의 장점은 그 자리에서 테스트해보고 검수할 수 있다는 것이다. 사장님과의 원활한 커뮤니케이션으로 머릿속에서 상상한 나의 소책자를 실물로 옮길 수 있도록 하자.</p>
+					<p class="small-title2">인쇄와 검수</p>
+					<p class="p2">소책자 파일과 종이, 제본 방식이 모두 준비되었다면 인쇄소에서 중철제본으로 인쇄하자. 직접 인쇄소를 방문하는 것의 장점은 그 자리에서 테스트해보고 검수할 수 있다는 것이다. 사장님과의 원활한 커뮤니케이션으로 머릿속에서 상상한 나의 소책자를 실물로 옮길 수 있도록 하자.</p>
 				</div>
 			</div>
-			<div class="">
-				<img src="" class="sticky">
-				<img src="" class="sticky">
-				<img src="" class="sticky">
+			<div class="imgbox" style="position: relative;">
+				<div class="pagebox">
+					<img src="images/page1.png">
+					<img src="images/page2.png">
+					<img src="images/page3.png">
+					<img src="images/page4.png">
+				</div>
+				<div class="samplebox">
+					<img src="images/sample1.png" class="sample1">
+					<img src="images/sample2.png" class="sample2">
+					<img src="images/sample3.png" class="sample3">
+					<img src="images/sample4.png" class="sample4">
+				</div>
+				<img src="images/paperselect.png" class="sticky paperselect">
+				<img src="images/line.png" class="sticky line">
+				<img src="images/making.png" class="sticky making">
 			</div>
 		</section>
-		<section class="wrapper" id="toPage3">
+		<section class="wrapper" id="toPage3" style="padding-bottom: 200px;">
 			<h2>마지막 검수까지 완료하면...</h2>
-		    <h2>나만의 소책자 완성!</h2>
+		    <h2 id="complete">나만의 소책자 완성!</h2>
+		    <p class="p3">소책자 예시 확인하러가기 >>></p>
 		</section>
 	</div>
 	<div class="page" id="page3">
-		<section id="bookSection">
+		<section id="bookSection" style="position: relative;">
+			<p class="backbutton" id="backToPage2"><<< BACK</p>
+			<div class="usedpaper">
+				<img src="images/Scottland.png" class="Scottland">
+				<img src="images/shipskin.png" class="shipskin">
+				<img src="images/sento.png" class="sento">
+			</div>
+			<div class="paperexplain">
+				<p class="p2 Scottland-ex">표지 | 스코트랜드 130 스노우<br><br>130그램으로 약간의 두께감이 있고 가벼운 미색과 적당한 질감이 있다. 친근한 느낌을 내기에 좋은 종이 중 하나이다.</p>
+				<p class="p2 shipskin-ex"> 색지 | 쉽스킨 90g<br><br>양피지의 질감을 구현한 반투명 트레이싱지 종류 중 하나이다. 색지가 너무 강렬하다면 이러한 트레이싱지 종류를 사용해 부드럽고 신비한 분위기를 연출할 수 있다.</p>
+				<p class="p2 sento-ex">내지 | 센토 Extrawhite 100g<br><br>표지로 사용한 종이와 비슷한 색감의 미색이 들어간 내지이다. 질감과 두께의 구현이 내지로 사용하기에 아주 적합하다.</p>
+			</div>
 			<div id="bookViewer"></div>
-		<p id="bookGuide" style="font-family: 'JoseonGulim';">드래그해서 돌려보고, 페이지를 클릭하면 다음 장으로 넘어갑니다.</p>
-	</section>
+			<p id="bookGuide" style="font-family: 'JoseonGulim';">드래그해서 돌려보고, 페이지를 클릭하면 다음 장으로 넘어갑니다.</p>
+		</section>
 	</div>
 	
 
